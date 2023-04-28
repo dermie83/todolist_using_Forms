@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title:'Admin' /}
+
+#{menu id:"admin"/}
+<div class="content box">
+  <h1 class="title">
+    All Todo tasks currently in Database:
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID </th>
+      <th>List </th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:todoList, as:'todo'}
+    <tr>
+      <td>
+        ${todo.id}
+      </td>
+      <td>
+        ${todo.title}
+      </td>
+    </tr>
+    #{/list}
+    </tbody>
+  </table>
+</div>

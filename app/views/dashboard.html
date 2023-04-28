@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+<section class="box">
+  <header class="title">
+    Todo List
+  </header>
+  <table class="table is-striped">
+    <thead>
+    <tr>
+      <th>List</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:todolist, as:'todo'}
+    <tr>
+      <td>
+        <li class="ui item"> ${todo.title} </li>
+      </td>
+      <td>
+        <a href="/dashboard/deleteTodo/${todo.id}" class="button is-danger">Delete</a>
+      </td>
+    </tr>
+    #{/list}
+    </tbody>
+  </table>
+</section>
+
+<form class="box" action="/dashboard/addtodo" method="POST">
+  <div class="field">
+    <label class="label">Title</label>
+    <input class="input is small" placeholder="Title" type="text" name="title">
+  </div>
+  <button class="button is-link is-info">Add Todo</button>
+</form>
